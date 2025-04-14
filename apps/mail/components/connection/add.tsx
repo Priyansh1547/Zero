@@ -73,19 +73,22 @@ export const AddConnectionDialog = ({
             </motion.a>
           ))}
           <motion.div
+            className="block w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: emailProviders.length * 0.1, duration: 0.3 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            <Button
-              variant="outline"
-              className="h-24 flex-col items-center justify-center gap-2 border-dashed"
-            >
-              <Plus className="h-12 w-12" />
-              <span className="text-xs">{t('pages.settings.connections.moreComingSoon')}</span>
-            </Button>
+            <div className="w-full">
+              <Button
+                variant="outline"
+                className="h-24 w-full flex-col items-center justify-center gap-2 border-dashed"
+              >
+                <Plus className="h-12 w-12" />
+                <span className="text-xs">{t('pages.settings.connections.moreComingSoon')}</span>
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       </DialogContent>
