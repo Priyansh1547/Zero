@@ -1,0 +1,19 @@
+<svg width="389" height="275" viewBox="0 0 389 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="389" height="275" fill="black"/>
+<rect width="195" height="275" fill="#D9D9D9"/>
+<path d="M33 52C33 44.268 39.268 38 47 38H195V275H33V52Z" fill="white"/>
+<path d="M195 38H343C350.732 38 357 44.268 357 52V275H195V38Z" fill="#1E1E1E"/>
+<circle cx="56.5" cy="56.5" r="6.5" fill="#FF0000"/>
+<circle cx="90.5" cy="56.5" r="6.5" fill="#6FFF00"/>
+<circle cx="73.5" cy="56.5" r="6.5" fill="#FFE100"/>
+<rect x="57" y="90" width="85" height="25" rx="4" fill="#D9D9D9"/>
+<rect x="57" y="121" width="85" height="25" rx="4" fill="#D9D9D9"/>
+<rect x="57" y="183" width="85" height="25" rx="4" fill="#D9D9D9"/>
+<rect x="57" y="152" width="85" height="25" rx="4" fill="#D9D9D9"/>
+<path d="M161 95C161 92.7909 162.791 91 165 91H195V267H165C162.791 267 161 265.209 161 263V95Z" fill="#D9D9D9"/>
+<rect x="173" y="112" width="22" height="40" fill="#F1F1F1"/>
+<path d="M195 91H337C339.209 91 341 92.7909 341 95V263C341 265.209 339.209 267 337 267H195V91Z" fill="#333333"/>
+<rect x="195" y="112" width="137" height="40" fill="#535353"/>
+<rect x="214" y="166" width="118" height="16" fill="#535353"/>
+<rect x="281" y="185" width="51" height="8" fill="#535353"/>
+</svg>

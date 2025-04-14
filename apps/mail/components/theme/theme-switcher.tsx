@@ -1,22 +1,47 @@
 'use client';
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { useEffect, useState } from 'react';
-
 import { type MessageKey } from '@/config/navigation';
-import { Laptop, Moon, Sun } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+
+import system from '@/public/assets/system-mode.svg';
+import light from '@/public/assets/light-mode.svg';
+import dark from '@/public/assets/dark-mode.svg';
+
 interface ModeToggleProps {
   className?: string;
 }
+
+interface ThemeItem {
+  name: string;
+  title: MessageKey;
+  src: any;
+  alt: string;
+}
+
+const themes: ThemeItem[] = [
+  {
+    name: 'light',
+    title: 'common.themes.light',
+    src: light,
+    alt: 'Light mode',
+  },
+  {
+    name: 'dark',
+    title: 'common.themes.dark',
+    src: dark,
+    alt: 'Dark mode',
+  },
+  {
+    name: 'system',
+    title: 'common.themes.system',
+    src: system,
+    alt: 'System mode',
+  },
+];
 
 export function ModeToggle({ className }: ModeToggleProps) {
   const [mounted, setMounted] = useState(false);
@@ -55,37 +80,25 @@ export function ModeToggle({ className }: ModeToggleProps) {
   }
 
   return (
-    <Select value={theme} onValueChange={handleThemeChange}>
-      <SelectTrigger className={cn(className)}>
-        <SelectValue placeholder="Select theme">
-          <div className="flex items-center gap-2 capitalize">
-            {theme === 'dark' && <Moon className="h-4 w-4" />}
-            {theme === 'light' && <Sun className="h-4 w-4" />}
-            {theme === 'system' && <Laptop className="h-4 w-4" />}
-            {t(`common.themes.${theme}` as MessageKey)}
-          </div>
-        </SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="dark">
-          <div className="flex items-center gap-2">
-            <Moon className="h-4 w-4" />
-            {t('common.themes.dark')}
-          </div>
-        </SelectItem>
-        <SelectItem value="system">
-          <div className="flex items-center gap-2">
-            <Laptop className="h-4 w-4" />
-            {t('common.themes.system')}
-          </div>
-        </SelectItem>
-        <SelectItem value="light">
-          <div className="flex items-center gap-2">
-            <Sun className="h-4 w-4" />
-            {t('common.themes.light')}
-          </div>
-        </SelectItem>
-      </SelectContent>
-    </Select>
+    <div className={cn('flex items-center gap-4', className)}>
+      {themes.map((themeItem) => (
+        <button
+          key={themeItem.name}
+          onClick={() => handleThemeChange(themeItem.name)}
+          title={t(themeItem.title)}
+          className="flex flex-col items-start gap-2"
+        >
+          <Image
+            src={themeItem.src}
+            alt={themeItem.alt}
+            className={cn(
+              'h-[60px] w-full rounded-xl transition-opacity hover:opacity-80 sm:h-[75px] md:h-[100px] lg:h-[120px]',
+              theme === themeItem.name && 'object-cover ring-2 ring-blue-500',
+            )}
+          />
+          <span className="text-sm">{t(themeItem.title)}</span>
+        </button>
+      ))}
+    </div>
   );
 }

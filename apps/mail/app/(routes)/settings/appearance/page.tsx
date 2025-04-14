@@ -52,7 +52,7 @@ export default function AppearancePage() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label>{t('pages.settings.appearance.theme')}</Label>
-                <ModeToggle className="bg-popover w-36" />
+                <ModeToggle />
               </div>
             </div>
           </form>
