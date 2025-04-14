@@ -1,6 +1,7 @@
 'use client';
 
 import { type MessageKey } from '@/config/navigation';
+import type { StaticImageData } from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
@@ -18,7 +19,7 @@ interface ModeToggleProps {
 interface ThemeItem {
   name: string;
   title: MessageKey;
-  src: any;
+  src: StaticImageData;
   alt: string;
 }
 
